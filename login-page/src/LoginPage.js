@@ -12,8 +12,11 @@ const LoginPage = () => {
 
   function handleSignUp(emailId, password) {
     const message = validateLoginCreds(emailId, password);
-    localStorage.setItem(emailId, password);
-    setIsSignUpForm(false);
+    if (message !== undefined) {
+      localStorage.setItem(emailId, password);
+      setIsSignUpForm(false);
+    }
+
     setEmailId("");
     setPassword("");
   }
